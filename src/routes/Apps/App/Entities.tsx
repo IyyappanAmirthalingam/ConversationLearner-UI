@@ -27,10 +27,7 @@ function getColumns(intl: InjectedIntl): IRenderableColumn[] {
     return [
         {
             key: 'entityName',
-            name: intl.formatMessage({
-                id: FM.ENTITIES_COLUMNS_NAME,
-                defaultMessage: 'Entity Name'
-            }),
+            name: Util.formatMessageId(intl, FM.ENTITIES_COLUMNS_NAME),
             fieldName: 'entityName',
             minWidth: 100,
             isResizable: true,
@@ -40,10 +37,7 @@ function getColumns(intl: InjectedIntl): IRenderableColumn[] {
         },
         {
             key: 'entityType',
-            name: intl.formatMessage({
-                id: FM.ENTITIES_COLUMNS_TYPE,
-                defaultMessage: 'Type'
-            }),
+            name: Util.formatMessageId(intl, FM.ENTITIES_COLUMNS_TYPE),
             fieldName: 'entityType',
             minWidth: 180,
             maxWidth: 180,
@@ -69,10 +63,7 @@ function getColumns(intl: InjectedIntl): IRenderableColumn[] {
         },
         {
             key: 'entityResolver',
-            name: intl.formatMessage({
-                id: FM.ENTITIES_COLUMNS_RESOLVER,
-                defaultMessage: 'Resolver Type'
-            }),
+            name: Util.formatMessageId(intl, FM.ENTITIES_COLUMNS_RESOLVER),
             fieldName: 'entityResolver',
             minWidth: 180,
             maxWidth: 180,
@@ -96,10 +87,7 @@ function getColumns(intl: InjectedIntl): IRenderableColumn[] {
         },
         {
             key: 'isBucketable',
-            name: intl.formatMessage({
-                id: FM.ENTITIES_COLUMNS_IS_BUCKETABLE,
-                defaultMessage: 'Multi-Value'
-            }),
+            name: Util.formatMessageId(intl, FM.ENTITIES_COLUMNS_IS_BUCKETABLE),
             fieldName: 'isMultivalue',
             minWidth: 70,
             maxWidth: 70,
@@ -109,10 +97,7 @@ function getColumns(intl: InjectedIntl): IRenderableColumn[] {
         },
         {
             key: 'isNegatable',
-            name: intl.formatMessage({
-                id: FM.ENTITIES_COLUMNS_IS_NEGATABLE,
-                defaultMessage: 'Negatable'
-            }),
+            name: Util.formatMessageId(intl, FM.ENTITIES_COLUMNS_IS_NEGATABLE),
             fieldName: 'isNegatible',
             minWidth: 70,
             maxWidth: 70,
@@ -122,10 +107,7 @@ function getColumns(intl: InjectedIntl): IRenderableColumn[] {
         },
         {
             key: 'created',
-            name: intl.formatMessage({
-                id: FM.ENTITIES_COLUMNS_CREATED_DATE_TIME,
-                defaultMessage: 'Created'
-            }),
+            name: Util.formatMessageId(intl, FM.ENTITIES_COLUMNS_CREATED_DATE_TIME),
             fieldName: 'created',
             minWidth: 100,
             isResizable: false,
@@ -252,6 +234,7 @@ class Entities extends React.Component<Props, ComponentState> {
             searchValue: lcString
         })
     }
+
     render() {
         const { entities } = this.props
         const computedEntities = this.getFilteredAndSortedEntities()
@@ -273,14 +256,8 @@ class Entities extends React.Component<Props, ComponentState> {
                         data-testid="entities-button-create"
                         disabled={this.props.editingPackageId !== this.props.app.devPackageId}
                         onClick={this.handleOpenCreateModal}
-                        ariaDescription={this.props.intl.formatMessage({
-                            id: FM.ENTITIES_CREATEBUTTONARIALDESCRIPTION,
-                            defaultMessage: 'Create a New Entity'
-                        })}
-                        text={this.props.intl.formatMessage({
-                            id: FM.ENTITIES_CREATEBUTTONTEXT,
-                            defaultMessage: 'New Entity'
-                        })}
+                        ariaDescription={Util.formatMessageId(this.props.intl, FM.ENTITIES_CREATEBUTTONARIALDESCRIPTION)}
+                        text={Util.formatMessageId(this.props.intl, FM.ENTITIES_CREATEBUTTONTEXT)}
                         componentRef={component => this.newEntityButton = component!}
                     />
                 </div>
@@ -294,14 +271,8 @@ class Entities extends React.Component<Props, ComponentState> {
                                 }}
                                 disabled={this.props.editingPackageId !== this.props.app.devPackageId}
                                 onClick={this.handleOpenCreateModal}
-                                ariaDescription={this.props.intl.formatMessage({
-                                    id: FM.ENTITIES_CREATEBUTTONARIALDESCRIPTION,
-                                    defaultMessage: 'Create a New Entity'
-                                })}
-                                text={this.props.intl.formatMessage({
-                                    id: FM.ENTITIES_CREATEBUTTONTEXT,
-                                    defaultMessage: 'New Entity'
-                                })}
+                                ariaDescription={Util.formatMessageId(this.props.intl, FM.ENTITIES_CREATEBUTTONARIALDESCRIPTION)}
+                                text={Util.formatMessageId(this.props.intl, FM.ENTITIES_CREATEBUTTONTEXT)}
                             />
                         </div>
                     </div>
